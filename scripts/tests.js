@@ -45,8 +45,8 @@ QUnit.test('truck.js', function(assert) {
         emailAddress: 'm@bond.com',
         coffee: 'earl grey'
     });
-    assert.deepEqual(myTruck.testGetAll(), ['me@goldfinger.com', 'dr@no.com', 'm@bond.com'], 'Passed, Correct Orders Printed');
+    assert.deepEqual(myTruck.testGetAll(), ['me@goldfinger.com', 'dr@no.com', 'm@bond.com'], 'createOrder function = Passed!');
     myTruck.deliverOrder('dr@no.com');
     myTruck.deliverOrder('m@bond.com');
-    assert.deepEqual(myTruck.testGetAll(), ['me@goldfinger.com'], 'Passed, Correct Orders Removed and Printed');
+    assert.deepEqual(myTruck.testGetAll(), ['me@goldfinger.com'], 'deliverOrder function = Passed!');
 });
