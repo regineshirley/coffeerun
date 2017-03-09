@@ -27,8 +27,12 @@
     };
 
     Truck.prototype.testGetAll = function() {
-        var ordersArray = Object(this.db.getAll());
-        return ordersArray;
+        var customerIdArray = Object.keys(this.db.getAll());
+
+        console.log('Truck # ' + this.truckId + 'has pending orders: ');
+        customerIdArray.forEach(function() {}.bind(this));
+
+        return customerIdArray;
     };
 
     App.Truck = Truck;

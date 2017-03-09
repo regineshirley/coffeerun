@@ -2,7 +2,7 @@
 //    assert.ok(1 == '1', 'Passed!');
 //});
 
-var App = window.App || {};
+var App = window.App;
 
 QUnit.test('datastore.js', function(assert) {
     var ds = new App.DataStore();
@@ -33,8 +33,20 @@ QUnit.test('datastore.js', function(assert) {
 //Truck printOrders returns undefined.
 QUnit.test('truck.js', function(assert) {
     var myTruck = new App.Truck('007', new App.DataStore());
-    myTruck.createOrder({emailAddress: 'm@bond.com', coffee: 'earl grey'});
-    //var result = myTruck.testGetAll();
-    assert.deepEqual(myTruck.testGetAll() , {emailAddress: 'm@bond.com', coffee: 'earl grey'}, 'creating an order');
-
+    myTruck.createOrder({
+        emailAddress: 'me@goldfinger.com',
+        coffee: 'double mocha'
+    });
+    myTruck.createOrder({
+        emailAddress: 'dr@no.com',
+        coffee: 'decaf'
+    });
+    myTruck.createOrder({
+        emailAddress: 'm@bond.com',
+        coffee: 'earl grey'
+    });
+    assert.deepEqual(myTruck.testGetAll(), ['me@goldfinger.com', 'dr@no.com', 'm@bond.com'], 'Passed, Correct Orders Printed');
+    myTruck.deliverOrder('dr@no.com');
+    myTruck.deliverOrder('m@bond.com');
+    assert.deepEqual(myTruck.testGetAll(), ['me@goldfinger.com'], 'Passed, Correct Orders Removed and Printed');
 });
