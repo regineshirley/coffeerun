@@ -30,7 +30,7 @@ QUnit.test('datastore.js', function(assert) {
 });
 
 
-//Truck printOrders returns undefined.
+//Issue: Truck printOrders returns undefined.
 QUnit.test('truck.js', function(assert) {
     var myTruck = new App.Truck('007', new App.DataStore());
     myTruck.createOrder({

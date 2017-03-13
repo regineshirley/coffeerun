@@ -26,6 +26,8 @@
         }.bind(this));
     };
 
+//Added function to address issue of QUnit. Help to output list of orders
+//without getting 'undefined'.
     Truck.prototype.testGetAll = function() {
         var customerIdArray = Object.keys(this.db.getAll());
 
